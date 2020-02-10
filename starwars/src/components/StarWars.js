@@ -8,8 +8,8 @@ const StarWars = () => {
     useEffect(() => {
         axios.get('https://swapi.co/api/people')
             .then(response => {
-                setPeople(response.data);
-                console.log(response.data);
+                setPeople(response.data.results);
+                console.log(response.data.results);
             })
             .catch(error => {
                 console.log("The data was not returned", error);
