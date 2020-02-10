@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import StarWarsData from "./StarWarsData.js";
+import { Container, Row } from "reactstrap";
 
 const StarWars = () => {
     const [people, setPeople] = useState([]);
@@ -17,17 +18,13 @@ const StarWars = () => {
     }, []);
 
     return (
-        <div>
-            {people.map(item => {
-                return <StarWarsData person={item} key={item.url} />
-                // <li key={item.objectID}>
-                //     <a href={item.url}>{item.title}</a>
-                // </li>
-            })};
-            {/* {people.map((item) => {
-                return <StarWarsData person={item} key={item.url} />;
-            })} */}
-        </div>
+        <Container>
+            <Row>
+                {people.map(item => {
+                    return <StarWarsData person={item} key={item.url} />
+                })};
+            </Row>
+        </Container >
     );
 }
 
